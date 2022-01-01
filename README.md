@@ -2,7 +2,7 @@
 
 ## Features
 
-- Speed up reading 1M records from csv file
+- reading 1M records from csv file
 
 - Data filter
 
