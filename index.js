@@ -2,7 +2,7 @@
 const fs = require('fs');
 const axios = require('axios');
 
-const tokenNames = ['BTC', 'ETH', 'XRP', ]; 
+const exceptTokens = ['token', 'undefined'];
 
 Array.prototype.amountSum = function (transaction_type, amount) {
     var total = 0
@@ -39,7 +39,7 @@ fs.readFile('./data/transactions.csv', 'utf8', function (err, data) {
     var tokenArray = Object.entries(groupedToken).map(([key, value]) => ({key,value}));
     
     tokenArray.forEach(item => {
-        if (tokenNames.includes(item.key)) {
+        if (!exceptTokens.includes(item.key)) {
             const tokenData = item.value;
             (async () => {
                 try {
